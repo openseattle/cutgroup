@@ -1,0 +1,373 @@
+$color-primary: #0047ba
+$color-primary-pre-gradient: #0062ff
+$color-primary-post-gradient: #002d76
+$color-secondary: #ffffff
+$color-text: #000
+
+@import url('https://fonts.googleapis.com/css?family=Open+Sans')
+
+// Default
+
+*
+  margin: 0
+  padding: 0
+
+
+// Flex
+
+.flex
+  display: flex
+
+.align-center
+  align-items: center
+
+.flex-center
+  justify-content: center
+
+.flex-end
+  justify-content: flex-end
+
+.flex-wrap
+  flex-wrap: wrap
+
+
+// Containers
+
+.header
+  height: 60px
+  width: 100%
+  position: fixed
+  top: 0px
+
+.section-nav > a
+  color: $color-text
+  margin-left: 20px
+  padding-bottom: 5px
+  text-decoration: none
+
+.step-by-step
+  list-style: decimal
+  list-style-position: inside
+
+.block-container
+  width: 100%
+
+.container-51
+  width: 51%
+
+.container-60
+  width: 60%
+
+.container-80
+  width: 80%
+
+.acknowledgement
+  position: fixed
+  display: none
+  left: 20px
+  top: 80px
+  background-color: $color-primary-pre-gradient
+  color: $color-secondary
+  border-radius: 30px
+
+
+// Items
+
+#vueform
+  fieldset
+    border: none
+
+  label
+    display: block
+
+  input
+    display: block
+
+  .radio-group
+    margin-bottom: 10px
+
+  .radio-group, .checkbox-label
+    legend
+      display: block
+
+    label
+      display: inline-block
+
+    input
+      display: inline
+
+    label, input
+      font-family: 'Open Sans', sans-serif
+      font-size: 16px
+      letter-spacing: 0.5px
+      line-height: 32px
+      text-rendering: optimizeLegibility
+      -webkit-font-smoothing: antialiased
+
+    .label-text
+      label, input
+        display: inline-block
+
+      .force-block
+        display: block
+
+  .label-text
+    margin-bottom: 10px
+
+    label, input
+      display: block
+      font-family: 'Open Sans', sans-serif
+      font-size: 16px
+      letter-spacing: 0.5px
+      line-height: 32px
+      text-rendering: optimizeLegibility
+      -webkit-font-smoothing: antialiased
+
+    input
+      padding-left: 6px
+      padding-right: 6px
+
+    .force-header
+      display: block
+      font-family: 'Open Sans', sans-serif
+      font-size: 20px
+      letter-spacing: 1px
+      line-height: 30px
+      text-rendering: optimizeLegibility
+      -webkit-font-smoothing: antialiased
+      margin-bottom: 10px
+
+  .flex-form-text
+    display: flex
+    flex-wrap: wrap
+    justify-content: flex-start
+
+    .label-text
+      margin-right: 20px
+
+  .input-size-5
+    width: 5em
+
+  .input-size-10
+    width: 10em
+
+  .input-size-20
+    width: 20em
+
+  .input-size-30
+    width: 30em
+
+  .input-size-40
+    width: 40em
+
+  @media only screen and (max-width: 510px)
+    .input-size-5, .input-size-10, .input-size-20, .input-size-30, .input-size-40
+      width: 100%
+
+.button-standard-primary
+  color: $color-secondary
+  background-color: $color-primary
+  border: 2px solid $color-secondary
+  outline: none
+
+  &:hover
+    color: $color-primary
+    background-color: $color-secondary
+    border: 2px solid $color-primary
+
+
+// Spacing
+
+.float-right
+  float: right
+
+.padding-all-10px
+  padding: 10px
+
+.space-bottom-10px
+  margin-bottom: 10px
+
+.space-top-20px
+  margin-top: 20px
+
+.space-right-20px
+  margin-right: 20px
+
+.space-bottom-20px
+  margin-bottom: 20px
+
+.space-left-20px
+  margin-left: 20px
+
+.space-top-60px
+  margin-top: 60px
+
+.space-bottom-60px
+  margin-bottom: 60px
+
+.space-top-100px
+  margin-top: 100px
+
+.space-bottom-100px
+  margin-bottom: 100px
+
+
+// Transitions
+
+.on-hover-border-bottom-text
+  border-bottom: 1px solid transparent
+
+  &:hover
+    border-bottom: 1px solid $color-text
+
+.on-hover-border-bottom-text-color-secondary
+  border-bottom: 0px solid transparent
+
+  &:hover
+    border-bottom: 1px solid $color-secondary
+
+.transition-all-200
+  -o-transition: all 200ms ease-in-out
+  -webkit-transition: all 200ms ease-in-out
+  -moz-transition: all 200ms ease-in-out
+  -ms-transition: all 200ms ease-in-out
+  transition: all 200ms ease-in-out
+
+
+// Text
+
+.banner-text
+  font-family: 'Open Sans', sans-serif
+  font-weight: bold
+  font-size: 38px
+  letter-spacing: 1px
+  line-height: 60px
+  text-rendering: optimizeLegibility
+  -webkit-font-smoothing: antialiased
+
+.tag-text
+  font-family: 'Open Sans', sans-serif
+  font-size: 32px
+  letter-spacing: 1px
+  line-height: 60px
+  text-rendering: optimizeLegibility
+  -webkit-font-smoothing: antialiased
+
+.minor-header
+  font-family: 'Open Sans', sans-serif
+  font-size: 20px
+  letter-spacing: 1px
+  line-height: 30px
+  text-rendering: optimizeLegibility
+  -webkit-font-smoothing: antialiased
+
+.detail-text
+  font-family: 'Open Sans', sans-serif
+  font-size: 16px
+  letter-spacing: 0.5px
+  line-height: 32px
+  text-rendering: optimizeLegibility
+  -webkit-font-smoothing: antialiased
+
+.inline-link
+  text-decoration: none
+  color: $color-text
+  border-bottom: 1px dotted $color-text
+
+  &:visited
+    color: $color-text
+
+  &:hover
+    border-bottom: 1px solid transparent
+
+.inline-link-secondary
+  text-decoration: none
+  color: $color-secondary
+  border-bottom: 1px dotted $color-secondary
+
+  &:visited
+    color: $color-secondary
+
+  &:hover
+    border-bottom: 1px solid transparent
+
+.gapped-text
+  font-family: 'Open Sans', sans-serif
+  font-size: 16px
+  letter-spacing: 1px
+  line-height: 60px
+  text-rendering: optimizeLegibility
+  -webkit-font-smoothing: antialiased
+
+.bold
+  font-weight: bold
+
+.text-align-center
+  text-align: center
+
+
+// Coloring
+
+.color-primary
+  color: $color-primary
+
+.color-bg-primary
+  background-color: $color-primary
+
+.color-bg-primary-gradient-1
+  background: $color-primary
+  background: -webkit-linear-gradient(top left, $color-primary-pre-gradient, $color-primary)
+  background: -o-linear-gradient(bottom right, $color-primary-pre-gradient, $color-primary)
+  background: -moz-linear-gradient(bottom right, $color-primary-pre-gradient, $color-primary)
+  background: linear-gradient(to bottom right, $color-primary-pre-gradient, $color-primary)
+
+.color-bg-primary-gradient-2
+  background: $color-primary
+  background: -webkit-linear-gradient(top left, $color-primary, $color-primary-post-gradient)
+  background: -o-linear-gradient(bottom right, $color-primary, $color-primary-post-gradient)
+  background: -moz-linear-gradient(bottom right, $color-primary, $color-primary-post-gradient)
+  background: linear-gradient(to bottom right, $color-primary, $color-primary-post-gradient)
+
+.color-secondary
+  color: $color-secondary
+
+.color-bg-secondary
+  background-color: $color-secondary
+
+.color-bg-off-secondary
+  background-color: darken($color-secondary, 2%)
+
+.color-text
+  color: $color-text
+
+.color-bg-text
+  background-color: $color-text
+
+@media only screen and (max-width: 510px)
+  #section-nav
+    display: block
+    margin-right: 0px
+    width: 100%
+    background-color: transparentize(darken($color-secondary, 2%), 0.1)
+
+    a
+      display: block
+      width: 100%
+      margin-left: 20px
+      margin-right: 20px
+
+
+  #mobile-nav-button
+    float: right
+    line-height: 60px
+    position: absolute
+    right: 20px
+    top: 0px
+
+  .banner-text
+    font-size: 28px
+    line-height: 36px
+
+  .tag-text
+    font-size: 24px
+    line-height: 34px

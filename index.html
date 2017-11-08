@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>CUTGroup - Seattle</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--  styling -->
+    <link rel="stylesheet" type="text/css" href="/style/master.css">
+    <link rel="stylesheet" type="text/css" href="/style/font-awesome.css">
+
+    <!-- imports -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.6.0/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyBWsM0W9NbzV-GYGOz7zaPmgOuFCqlRx4w",
+        authDomain: "civic-user-testing-group-abca4.firebaseapp.com",
+        databaseURL: "https://civic-user-testing-group-abca4.firebaseio.com",
+        projectId: "civic-user-testing-group-abca4",
+        storageBucket: "civic-user-testing-group-abca4.appspot.com",
+        messagingSenderId: "62107675012"
+      };
+
+      const firebaseApp = firebase.initializeApp(config);
+      const firebaseDB = firebase.database();
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.3/vue.min.js" charset="utf-8"></script>
+
+    <!--  scripts -->
+    <script charset="utf-8" src="js/nav.js"></script>
+  </head>
+  <body>
+    <div class="header color-bg-off-secondary">
+      <span class="gapped-text space-left-20px">Seattle CUT</span>
+      <nav id="section-nav" class="section-nav float-right space-right-20px">
+        <a class="section-link gapped-text on-hover-border-bottom-text transition-all-200" href="#signup">How Do I Sign Up?</a>
+        <a class="section-link gapped-text on-hover-border-bottom-text transition-all-200" href="#about">About</a>
+        <a class="section-link gapped-text on-hover-border-bottom-text transition-all-200" href="#contact">Contact</a>
+      </nav>
+      <div id="mobile-nav-button">
+        <i id="button-bars" class="fa fa-bars" aria-hidden="true"></i>
+      </div>
+    </div>
+
+
+    <div class="block-container text-align-center flex align-center flex-center flex-wrap color-secondary color-bg-primary space-top-60px">
+      <div class="container-51 space-top-100px space-bottom-20px flex flex-center">
+        <h1 class="banner-text">Seattle Civic User Testing Group</h1>
+      </div>
+      <div class="container-51 space-bottom-20px flex flex-center">
+        <i class="fa fa-comments-o fa-5x" aria-hidden="true"></i>
+      </div>
+      <div class="container-51 space-bottom-20px flex flex-center">
+        <p class="tag-text">Make your voice heard. <b>Get&nbsp;paid</b></p>
+      </div>
+      <div class="container-51 space-bottom-10px flex flex-center">
+        <p class="detail-text">Join Seattle's Civic User Testing Group to provide feedback about websites and apps created to help city residents.</p>
+      </div>
+      <div class="container-51 space-bottom-20px flex flex-center">
+        <p class="detail-text">Because&nbsp;if&nbsp;it&nbsp;doesn't&nbsp;work&nbsp;for&nbsp;<em>you</em>, it&nbsp;doesn't&nbsp;work.</p>
+      </div>
+      <div class="container-51 space-bottom-100px flex flex-center">
+        <p class="detail-text">You'll get a $20 Visa gift card for every test that you participate in.</p>
+      </div>
+    </div>
+    <div class="block-container flex align-center flex align-center flex-center flex-wrap color-text color-bg-secondary">
+      <div class="container-51 space-top-100px space-bottom-20px">
+        <h3 class="tag-text ">How It Works:</h3>
+      </div>
+      <div class="container-51 space-bottom-100px">
+        <ul class="step-by-step">
+          <li class="detail-text space-bottom-20px">To sign up to become a tester, fill out the quick form below.</li>
+          <li class="detail-text space-bottom-20px">After you sign up, we'll begin sending you emails when there are testing opportunities. We'll ask you a few more questions about the technology you'll be testing, and you can let us know if you're available. Most testing sessions will take place at the Seattle Central Library or the University of Washington.</li>
+          <li class="detail-text space-bottom-20px">If you're selected for a testing session, you'll be guided through the session by a proctor to provide feedback on a civic website or an app.</li>
+          <li class="detail-text space-bottom-20px">After a completed testing session, you will receive a $20 Visa gift card.</li>
+          <li class="detail-text space-bottom-20px">You do <b>not</b> need to have any technology skills or experience to participate!</li>
+        </ul>
+      </div>
+    </div>
+    <div id="signup" class="block-container flex align-center flex-center flex-wrap color-secondary color-bg-primary-gradient-1">
+      <div class="container-51 space-top-100px space-bottom-20px">
+        <h3 class="tag-text ">How Do I Sign Up?</h3>
+      </div>
+      <div class="container-51 space-bottom-20px">
+        <p class="detail-text">We’re looking for a diverse group of testers across Seattle. Sign up now, and tell your friends!</p>
+      </div>
+      <div class="container-51 space-bottom-20px">
+        <p class="detail-text">In order to get the most of the CUTGroup tests, we have to have a fairly scientific take on who is part of the test and how they use technology. That’s why this form has some questions about where you live, what devices you have, and how you connect to the Internet. This helps us get the right mix of people to test a particular application and website.</p>
+      </div>
+      <div class="container-51 space-bottom-100px">
+        <p class="detail-text"><b>To sign up, fill out the form below.</b> After you complete the form, we will send you a confirmation email. If you live anywhere within the Seattle city limits, you are eligible to be a CUTGroup tester. After you have signed up, you’ll be part of the CUTGroup and will receive email notifications when we have new tests coming up.</p>
+      </div>
+    </div>
+    <div id="entry-form" class="block-container flex align-center flex align-center flex-center flex-wrap color-text color-bg-secondary">
+      <div class="container-51 space-top-100px space-bottom-20px">
+        <h3 class="tag-text">Sign Up:</h3>
+      </div>
+
+      <div id="vueform" class="container-51">
+        <vueform></vueform>
+      </div>
+    </div>
+    <div id="about" class="block-container flex align-center flex-center flex-wrap color-secondary color-bg-primary-gradient-2">
+      <div class="container-51 space-top-100px space-bottom-20px">
+        <h3 class="tag-text ">About:</h3>
+      </div>
+      <div class="container-51 space-bottom-20px">
+        <p class="detail-text">Seattle’s Civic User Testing Group is a collaboration among <a href="http://openseattle.org/" class="inline-link-secondary transition-all-200">Open Seattle</a>, the <a href="https://ischool.uw.edu/" class="inline-link-secondary transition-all-200">University of Washington’s iSchool</a>, and the <a href="https://seattle.gov/" class="inline-link-secondary transition-all-200">City of Seattle</a>. We are currently piloting this initiative with technology created by the City of Seattle, and our goal is to expand the CUTGroup more broadly in 2018 to provide user testing for developers working on civic apps and websites.</p>
+      </div>
+      <div class="container-51 space-bottom-20px">
+        <p class="detail-text">The results of all Seattle CUTGroup tests will be published, so that everyone can learn from our work. Testing sessions will be documented (while maintaining the privacy of individual testers). </p>
+      </div>
+      <div class="container-51 space-bottom-20px">
+        <p class="detail-text">Major thanks to <a href="http://www.cutgroup.org/index.html" class="inline-link-secondary transition-all-200">SmartChicago</a>, <a href="http://cutgroup.openoakland.org/" class="inline-link-secondary transition-all-200">Open Oakland</a>, <a href="http://cutgroup.miami/" class="inline-link-secondary transition-all-200">Open Miami</a>, and other CUTGroups across the country who have meticulously documented their own processes and results, making it possible for us to try this out here in Seattle.</p>
+      </div>
+      <div class="container-51 space-bottom-100px">
+        <p class="detail-text">If you’re a citizen, a member of government, or a developer, and you’re interested in getting more involved in civic technology, consider joining <a href="https://www.meetup.com/openseattle/" class="inline-link-secondary transition-all-200">Open Seattle Monthly Meetups</a>. Everyone is welcome!</p>
+      </div>
+    </div>
+    <div id="contact" class="block-container flex align-center flex-center flex-wrap color-text color-bg-secondary">
+      <div class="container-51 space-top-100px space-bottom-20px">
+        <h3 class="tag-text ">Contact:</h3>
+      </div>
+      <div class="container-51 space-bottom-100px">
+        <p class="detail-text">Want to get in touch? Email us at <a href="mailto:hi@openseattle.com" class="inline-link transition-all-200">hi@openseattle.org</a>.</p>
+      </div>
+    </div>
+    <div class="block-container flex align-center flex-center flex-wrap color-secondary color-bg-primary">
+      <div class="container-51 space-top-60px space-bottom-60px">
+        <p class="detail-text"><a rel="license" href="http://creativecommons.org/licenses/by/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/3.0/80x15.png" /></a> This work is licensed under a <a href="https://creativecommons.org/licenses/by/3.0/deed.en_US" class="inline-link-secondary transition-all-200">Creative Commons Attribution 3.0 Unported License</a>.</p>
+      </div>
+    </div>
+  </body>
+
+  <script src="js/vueform.js" charset="utf-8"></script>
+</html>
