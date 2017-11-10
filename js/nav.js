@@ -1,14 +1,21 @@
 $(document).ready(function() {
-  var mobileNav = $("#mobile-nav-button");
-  var sectionNav = $("#section-nav");
-  var sectionLink = $(".section-link");
-  var navBttn = $("#button-bars");
+  let mobileNav = $("#mobile-nav-button");
+  let sectionNav = $("#section-nav");
+  let sectionLink = $(".section-link");
+  let navBttn = $("#button-bars");
+  let headerTitle = $("#header-nav-title");
 
   mobileNav.attr("class", "");
 
   let x = $(window).width();
 
-  if (x >= 510) {
+  if (x >= 700) {
+    headerTitle.text("Seattle Civic User Testing Group")
+  } else {
+    headerTitle.text("Seattle CUT Group")
+  }
+
+  if (x >= 540) {
     sectionNav.css("display", "block");
     mobileNav.css("display", "none");
   } else {
@@ -41,7 +48,13 @@ $(document).ready(function() {
     mobileNav.attr("class", "");
     navBttn.attr("class", "fa fa-bars");
 
-    if (x >= 510) {
+    if (x >= 700) {
+      headerTitle.text("Seattle Civic User Testing Group")
+    } else {
+      headerTitle.text("Seattle CUT Group")
+    }
+
+    if (x >= 540) {
       sectionNav.css("display", "block");
       mobileNav.css("display", "none");
     } else {

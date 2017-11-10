@@ -1,6 +1,9 @@
 $color-primary: #0047ba
+$color-primary-rgba-70-percent: rgba(0,71,186, 0.7)
 $color-primary-pre-gradient: #0062ff
+$color-primary-pre-rgba-70-percent: rgba(0,98,255, 0.7)
 $color-primary-post-gradient: #002d76
+$color-primary-post-rgba-70-percent: rgba(0,45,118, 0.7)
 $color-secondary: #ffffff
 $color-text: #000
 
@@ -160,7 +163,7 @@ $color-text: #000
   .input-size-40
     width: 40em
 
-  @media only screen and (max-width: 510px)
+  @media only screen and (max-width: 540px)
     .input-size-5, .input-size-10, .input-size-20, .input-size-30, .input-size-40
       width: 100%
 
@@ -177,6 +180,18 @@ $color-text: #000
 
 
 // Spacing
+
+.width-vw
+  width: 100vw
+
+.height-vh
+  height: 100vh
+
+.z-back
+  z-index: 0
+
+.z-front
+  z-index: 100
 
 .float-right
   float: right
@@ -314,6 +329,9 @@ $color-text: #000
 .color-bg-primary
   background-color: $color-primary
 
+.color-bg-primary-transparentize-70-percent
+  background-color: $color-primary-rgba-70-percent
+
 .color-bg-primary-gradient-1
   background: $color-primary
   background: -webkit-linear-gradient(top left, $color-primary-pre-gradient, $color-primary)
@@ -321,12 +339,26 @@ $color-text: #000
   background: -moz-linear-gradient(bottom right, $color-primary-pre-gradient, $color-primary)
   background: linear-gradient(to bottom right, $color-primary-pre-gradient, $color-primary)
 
+.color-bg-primary-gradient-1-transparentize-70-percent
+  background: $color-primary
+  background: -webkit-linear-gradient(top left, $color-primary-pre-rgba-70-percent, $color-primary-rgba-70-percent)
+  background: -o-linear-gradient(bottom right, $color-primary-pre-rgba-70-percent, $color-primary-rgba-70-percent)
+  background: -moz-linear-gradient(bottom right, $color-primary-pre-rgba-70-percent, $color-primary-rgba-70-percent)
+  background: linear-gradient(to bottom right, $color-primary-pre-rgba-70-percent, $color-primary-rgba-70-percent)
+
 .color-bg-primary-gradient-2
   background: $color-primary
   background: -webkit-linear-gradient(top left, $color-primary, $color-primary-post-gradient)
   background: -o-linear-gradient(bottom right, $color-primary, $color-primary-post-gradient)
   background: -moz-linear-gradient(bottom right, $color-primary, $color-primary-post-gradient)
   background: linear-gradient(to bottom right, $color-primary, $color-primary-post-gradient)
+
+.color-bg-primary-gradient-2-transparentize-70-percent
+  background: $color-primary
+  background: -webkit-linear-gradient(top left, $color-primary-rgba-70-percent, $color-primary-post-rgba-70-percent)
+  background: -o-linear-gradient(bottom right, $color-primary-rgba-70-percent, $color-primary-post-rgba-70-percent)
+  background: -moz-linear-gradient(bottom right, $color-primary-rgba-70-percent, $color-primary-post-rgba-70-percent)
+  background: linear-gradient(to bottom right, $color-primary-rgba-70-percent, $color-primary-post-rgba-70-percent)
 
 .color-secondary
   color: $color-secondary
@@ -343,7 +375,14 @@ $color-text: #000
 .color-bg-text
   background-color: $color-text
 
-@media only screen and (max-width: 510px)
+.bg-image-skyline
+  background-image: url('../resources/seattle-skyline.jpg')
+  background-position: 20% 0%
+  background-size: cover
+
+// Nav
+
+@media only screen and (max-width: 540px)
   #section-nav
     display: block
     margin-right: 0px

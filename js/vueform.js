@@ -19,7 +19,11 @@ Vue.component("vueform", {
         secondaryConnect: "Broadband",
         contactUsing: "Email",
         discoveredBy: ""
-      }
+      },
+      primaryConnect: "Broadband",
+      secondaryConnect: "Broadband",
+      primaryConnectOther: "",
+      secondaryConnectOther: ""
     };
   },
   computed: {
@@ -28,7 +32,7 @@ Vue.component("vueform", {
         return "Please ensure your first name is correct.";
       } else if (this.toSendTester.lastName.length < 1 || !this.isValid(this.toSendTester.lastName)) {
         return "Please ensure your last name is correct.";
-      } else if (this.toSendTester.streetAddress.length < 5 || !this.noSpecialCharacters(this.toSendTester.streetAddress)) {
+      } else if (this.toSendTester.streetAddress.length < 5 || !this.isAddress(this.toSendTester.streetAddress)) {
         return "Please ensure your street address is correct.";
       } else if (this.toSendTester.city.length < 4 || !this.isValid(this.toSendTester.city)) {
         return "Please ensure your city is correct.";
@@ -47,21 +51,45 @@ Vue.component("vueform", {
       } else if (this.toSendTester.primaryConnect.length < 1 || !this.isValid(this.toSendTester.primaryConnect)) {
         return "Please ensure your primary internet connection choice is correct.";
       } else if (this.toSendTester.secondaryConnect.length < 1 || !this.isValid(this.toSendTester.secondaryConnect)) {
-        return "Please ensure your primary internet connection choice is correct.";
+        return "Please ensure your secondary internet connection choice is correct.";
       } else {
         return true;
+      }
+    },
+    toSendPrimaryConnect: function () {
+      if (this.primaryConnectOther.length == 0) {
+        return this.primaryConnect;
+      } else {
+        this.primaryConnect = "";
+        return this.primaryConnectOther;
+      }
+    },
+    toSendSecondaryConnect: function () {
+      if (this.secondaryConnectOther.length == 0) {
+        return this.secondaryConnect;
+      } else {
+        this.secondaryConnect = "";
+        return this.secondaryConnectOther;
       }
     }
   },
   methods: {
     isValid: function(str) {
-      return /^[a-zA-Z\-\']+$/.test(str);
+      return /^[a-zA-Z \-\']+$/.test(str);
     },
-    noSpecialCharacters: function(str) {
-      return /^[a-zA-Z \-\'0-9]+$/.test(str);
+    isAddress: function(str) {
+      return /^[a-zA-Z \-\'0-9.,]+$/.test(str);
     },
     isEmail: function(str) {
       return /^[a-zA-Z.@0-9]+$/.test(str);
+    },
+    setPrimaryConnect: function(str) {
+      this.primaryConnect = str;
+      this.primaryConnectOther = "";
+    },
+    setSecondaryConnect: function(str) {
+      this.secondaryConnect = str;
+      this.secondaryConnectOther = "";
     },
     // checkAddress: function() {
     //   let geocoder = new google.maps.Geocoder();
@@ -78,6 +106,9 @@ Vue.component("vueform", {
     // },
     addTester: function() {
       // this.checkAddress();
+
+      this.toSendTester["primaryConnect"] = this.toSendPrimaryConnect;
+      this.toSendTester["secondaryConnect"] = this.toSendSecondaryConnect;
 
       if (this.dataReady == true) {
         let newTesterRef = firebaseDB.ref("testers").push();
@@ -104,6 +135,11 @@ Vue.component("vueform", {
           contactUsing: "Email",
           discoveredBy: ""
         };
+
+        this.primaryConnect = "Broadband";
+        this.secondaryConnect = "Broadband";
+        this.primaryConnectOther = "";
+        this.secondaryConnectOther = "";
 
       } else {
 
@@ -230,48 +266,48 @@ Vue.component("vueform", {
         <fieldset class="radio-group" required>
           <legend class="minor-header">What is the most common way you connect to the Internet? *</legend>
           <div class="radio-label">
-            <input type="radio" id="primary-broadband" name="primary-connect" value="Broadband" v-model="toSendTester['primaryConnect']">
+            <input type="radio" id="primary-broadband" name="primary-connect" value="Broadband" v-model="toSendPrimaryConnect" v-on:click="setPrimaryConnect('Broadband')">
             <label for="primary-broadband">Broadband at home (Cable, DSL, etc.)</label>
           </div>
           <div class="radio-label">
-            <input type="radio" id="primary-phone" name="primary-connect" value="Phone" v-model="toSendTester['primaryConnect']">
+            <input type="radio" id="primary-phone" name="primary-connect" value="Phone" v-model="toSendPrimaryConnect" v-on:click="setPrimaryConnect('Phone')">
             <label for="primary-phone">Phone with Data Plan</label>
           </div>
           <div class="radio-label">
-            <input type="radio" id="primary-publicwifi" name="primary-connect" value="Public Wifi" v-model="toSendTester['primaryConnect']">
+            <input type="radio" id="primary-publicwifi" name="primary-connect" value="Public Wifi" v-model="toSendPrimaryConnect" v-on:click="setPrimaryConnect('Public Wifi')">
             <label for="primary-publicwifi">Public Wifi</label>
           </div>
           <div class="radio-label">
-            <input type="radio" id="primary-computercenter" name="primary-connect" value="Computer Center" v-model="toSendTester['primaryConnect']">
+            <input type="radio" id="primary-computercenter" name="primary-connect" value="Computer Center" v-model="toSendPrimaryConnect" v-on:click="setPrimaryConnect('Computer Center')">
             <label for="primary-computercenter">Public Computer Center</label>
           </div>
           <div class="label-text">
             <label>Other:</label>
-            <input class="input-size-20"type="text" value="" placeholder="..." v-model="toSendTester['primaryConnect']">
+            <input class="input-size-20"type="text" value="" placeholder="..." v-model="primaryConnectOther">
           </div>
         </fieldset>
 
         <fieldset class="radio-group" required>
           <legend class="minor-header">What is the second most common way you connect to the Internet? *</legend>
           <div class="radio-label">
-            <input type="radio" id="secondary-broadband" name="secondary-connect" value="Broadband" v-model="toSendTester['secondaryConnect']">
+            <input type="radio" id="secondary-broadband" name="secondary-connect" value="Broadband" v-model="secondaryConnect" v-on:click="setSecondaryConnect('Broadband')">
             <label for="secondary-broadband">Broadband at home (Cable, DSL, etc.)</label>
           </div>
           <div class="radio-label">
-            <input type="radio" id="secondary-phone" name="secondary-connect" value="Phone" v-model="toSendTester['secondaryConnect']">
+            <input type="radio" id="secondary-phone" name="secondary-connect" value="Phone" v-model="secondaryConnect" v-on:click="setSecondaryConnect('Phone')">
             <label for="secondary-phone">Phone with Data Plan</label>
           </div>
           <div class="radio-label">
-            <input type="radio" id="secondary-publicwifi" name="secondary-connect" value="Public Wifi" v-model="toSendTester['secondaryConnect']">
+            <input type="radio" id="secondary-publicwifi" name="secondary-connect" value="Public Wifi" v-model="secondaryConnect" v-on:click="setSecondaryConnect('Public Wifi')">
             <label for="secondary-publicwifi">Public Wifi</label>
           </div>
           <div class="radio-label">
-            <input type="radio" id="secondary-computercenter" name="secondary-connect" value="Computer Center" v-model="toSendTester['secondaryConnect']">
+            <input type="radio" id="secondary-computercenter" name="secondary-connect" value="Computer Center" v-model="secondaryConnect" v-on:click="setSecondaryConnect('Computer Center')">
             <label for="secondary-computercenter">Public Computer Center</label>
           </div>
           <div class="label-text">
             <label>Other:</label>
-            <input class="input-size-20"type="text" value="" placeholder="..." v-model="toSendTester['secondaryConnect']">
+            <input class="input-size-20"type="text" value="" placeholder="..." v-model="secondaryConnectOther">
           </div>
         </fieldset>
       </div>

@@ -118,7 +118,7 @@
   width: 30em; }
 #vueform .input-size-40 {
   width: 40em; }
-@media only screen and (max-width: 510px) {
+@media only screen and (max-width: 540px) {
   #vueform .input-size-5, #vueform .input-size-10, #vueform .input-size-20, #vueform .input-size-30, #vueform .input-size-40 {
     width: 100%; } }
 
@@ -131,6 +131,18 @@
     color: #0047ba;
     background-color: #ffffff;
     border: 2px solid #0047ba; }
+
+.width-vw {
+  width: 100vw; }
+
+.height-vh {
+  height: 100vh; }
+
+.z-back {
+  z-index: 0; }
+
+.z-front {
+  z-index: 100; }
 
 .float-right {
   float: right; }
@@ -253,6 +265,9 @@
 .color-bg-primary {
   background-color: #0047ba; }
 
+.color-bg-primary-transparentize-70-percent {
+  background-color: rgba(0, 71, 186, 0.7); }
+
 .color-bg-primary-gradient-1 {
   background: #0047ba;
   background: -webkit-linear-gradient(top left, #0062ff, #0047ba);
@@ -260,12 +275,26 @@
   background: -moz-linear-gradient(bottom right, #0062ff, #0047ba);
   background: linear-gradient(to bottom right, #0062ff, #0047ba); }
 
+.color-bg-primary-gradient-1-transparentize-70-percent {
+  background: #0047ba;
+  background: -webkit-linear-gradient(top left, rgba(0, 98, 255, 0.7), rgba(0, 71, 186, 0.7));
+  background: -o-linear-gradient(bottom right, rgba(0, 98, 255, 0.7), rgba(0, 71, 186, 0.7));
+  background: -moz-linear-gradient(bottom right, rgba(0, 98, 255, 0.7), rgba(0, 71, 186, 0.7));
+  background: linear-gradient(to bottom right, rgba(0, 98, 255, 0.7), rgba(0, 71, 186, 0.7)); }
+
 .color-bg-primary-gradient-2 {
   background: #0047ba;
   background: -webkit-linear-gradient(top left, #0047ba, #002d76);
   background: -o-linear-gradient(bottom right, #0047ba, #002d76);
   background: -moz-linear-gradient(bottom right, #0047ba, #002d76);
   background: linear-gradient(to bottom right, #0047ba, #002d76); }
+
+.color-bg-primary-gradient-2-transparentize-70-percent {
+  background: #0047ba;
+  background: -webkit-linear-gradient(top left, rgba(0, 71, 186, 0.7), rgba(0, 45, 118, 0.7));
+  background: -o-linear-gradient(bottom right, rgba(0, 71, 186, 0.7), rgba(0, 45, 118, 0.7));
+  background: -moz-linear-gradient(bottom right, rgba(0, 71, 186, 0.7), rgba(0, 45, 118, 0.7));
+  background: linear-gradient(to bottom right, rgba(0, 71, 186, 0.7), rgba(0, 45, 118, 0.7)); }
 
 .color-secondary {
   color: #ffffff; }
@@ -282,7 +311,12 @@
 .color-bg-text {
   background-color: #000; }
 
-@media only screen and (max-width: 510px) {
+.bg-image-skyline {
+  background-image: url("../resources/seattle-skyline.jpg");
+  background-position: 20% 0%;
+  background-size: cover; }
+
+@media only screen and (max-width: 540px) {
   #section-nav {
     display: block;
     margin-right: 0px;
