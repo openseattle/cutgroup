@@ -107,14 +107,27 @@ Vue.component("vueform", {
     addTester: function() {
       // this.checkAddress();
 
-      this.toSendTester["primaryConnect"] = this.toSendPrimaryConnect;
-      this.toSendTester["secondaryConnect"] = this.toSendSecondaryConnect;
+      this.toSendTester.primaryConnect = this.toSendPrimaryConnect;
+      this.toSendTester.secondaryConnect = this.toSendSecondaryConnect;
 
       if (this.dataReady == true) {
-        let newTesterRef = firebaseDB.ref("testers").push();
-        newTesterRef.set(this.toSendTester);
 
-        this.acknowledgeMessage("You have been added to the Seattle CUT Group! We will let you know about future testing opportunities.");
+        let sendingData = this.toSendTester;
+
+        firebase.auth().createUserWithEmailAndPassword(this.toSendTester.email, "password").then(function() {
+
+          let newTesterRef = firebaseDB.ref("testers").push();
+          newTesterRef.set(sendingData);
+
+          acknowledgeMessage("You have been added to the Seattle CUT Group! We will let you know about future testing opportunities.");
+
+        }, function(error) {
+          // Handle Errors here.
+          let errorCode = error.code;
+          let errorMessage = error.message;
+
+          acknowledgeMessage(errorMessage);
+        });
 
         this.toSendTester = {
           firstName: "",
@@ -143,18 +156,17 @@ Vue.component("vueform", {
 
       } else {
 
-        this.acknowledgeMessage(this.dataReady);
+        acknowledgeMessage(this.dataReady);
       }
-    },
-    acknowledgeMessage: function(message) {
-      $("#commitAcknowledgement").text(message);
-      $("#acknowledgementContainer").show().delay(5000).fadeOut();
     }
   },
   template: `
     <div class="space-bottom-100px">
       <div id="acknowledgementContainer" class="acknowledgement">
         <p id="commitAcknowledgement" class="minor-header padding-all-10px"></p>
+      </div>
+      <div id="verifyContainer" class="acknowledgement">
+        <p id="commitVerification" class="minor-header padding-all-10px">Please Verify Your Email</p>
       </div>
       <div>
         <fieldset class="space-bottom-20px">
@@ -340,3 +352,8 @@ Vue.component("vueform", {
 const app = new Vue({
   el: '#vueform'
 });
+
+function acknowledgeMessage(message) {
+  $("#commitAcknowledgement").text(message);
+  $("#acknowledgementContainer").show().delay(5000).fadeOut();
+};
