@@ -12,23 +12,6 @@
 
     <!-- imports -->
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-    <script src="https://www.gstatic.com/firebasejs/4.6.0/firebase.js"></script>
-    <script>
-      // Initialize Firebase
-      var config = {
-        apiKey: "AIzaSyBWsM0W9NbzV-GYGOz7zaPmgOuFCqlRx4w",
-        authDomain: "civic-user-testing-group-abca4.firebaseapp.com",
-        databaseURL: "https://civic-user-testing-group-abca4.firebaseio.com",
-        projectId: "civic-user-testing-group-abca4",
-        storageBucket: "civic-user-testing-group-abca4.appspot.com",
-        messagingSenderId: "62107675012"
-      };
-
-      const firebaseApp = firebase.initializeApp(config);
-      const firebaseDB = firebase.database();
-    </script>
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.3/vue.min.js" charset="utf-8"></script> -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.3/vue.js" charset="utf-8"></script>
 
     <!--  scripts -->
     <script charset="utf-8" src="js/nav.js"></script>
@@ -99,15 +82,8 @@
           <a id="link-to-signup" href="#entry-form" class="inline-link-secondary minor-header">Sign Up Now</a>
         </div>
       </div>
-      <div id="entry-form" class="block-container flex align-center flex align-center flex-center flex-wrap color-text color-bg-secondary">
-        <div class="container-51 space-top-100px space-bottom-20px">
-          <h3 class="tag-text">Sign Up</h3>
-        </div>
-
-        <div id="vueform" class="container-51">
-          <vueform></vueform>
-        </div>
-      </div>
+      <div id="form" class="typeform-widget" data-url="https://seattlecutgroup.typeform.com/to/xLhUoG" style="width: 100%; height: 700px;"></div> 
+      <script> (function() { var qs,js,q,s,d=document, gi=d.getElementById, ce=d.createElement, gt=d.getElementsByTagName, id="typef_orm", b="https://embed.typeform.com/"; if(!gi.call(d,id)) { js=ce.call(d,"script"); js.id=id; js.src=b+"embed.js"; q=gt.call(d,"script")[0]; q.parentNode.insertBefore(js,q) } })() </script>
       <div id="about" class="block-container flex align-center flex-center flex-wrap color-secondary color-bg-primary-gradient-2-transparentize-70-percent">
         <div class="container-51 space-top-100px space-bottom-20px">
           <h3 class="tag-text ">About</h3>
@@ -141,6 +117,4 @@
     </div>
 
   </body>
-
-  <script src="js/vueform.js" charset="utf-8"></script>
 </html>

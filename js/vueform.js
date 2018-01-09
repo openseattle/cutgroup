@@ -139,20 +139,22 @@ Vue.component("vueform", {
           phone: "",
           inPerson: false,
           remote: false,
-          primaryDevice: "Desktop",
-          primaryMakeModel: "",
-          secondaryDevice: "Desktop",
-          secondaryMakeModel: "",
-          primaryConnect: "Broadband",
-          secondaryConnect: "Broadband",
+          desktop: false,
+          desktopModel: "",
+          laptop: false,
+          laptopModel: "",
+          tablet: false,
+          tabletModel: "",
+          smartphone: false,
+          smartphoneModel: "",
+          broadband: false,
+          dataplan: false,
+          publicwifi: false,
+          publiccomputer: false,
+          otherconnection: "",
           contactUsing: "Email",
           discoveredBy: ""
         };
-
-        this.primaryConnect = "Broadband";
-        this.secondaryConnect = "Broadband";
-        this.primaryConnectOther = "";
-        this.secondaryConnectOther = "";
 
       } else {
 
@@ -225,118 +227,58 @@ Vue.component("vueform", {
       </div>
 
       <div class="space-bottom-20px">
-        <fieldset class="radio-group" required>
-          <legend class="minor-header">What is the device you use the most often to connect to the Internet? *</legend>
-          <div class="radio-label">
-            <input type="radio" id="primary-desktop" name="primary-device" value="Desktop" v-model="toSendTester['primaryDevice']">
-            <label for="Desktop">Desktop Computer</label>
-          </div>
-          <div class="radio-label">
-            <input type="radio" id="primary-laptop" name="primary-device" value="Laptop" v-model="toSendTester['primaryDevice']">
-            <label for="Laptop">Laptop</label>
-          </div>
-          <div class="radio-label">
-            <input type="radio" id="primary-tablet" name="primary-device" value="Tablet" v-model="toSendTester['primaryDevice']">
-            <label for="Tablet">Tablet</label>
-          </div>
-          <div class="radio-label">
-            <input type="radio" id="primary-phone" name="primary-device" value="Phone" v-model="toSendTester['primaryDevice']">
-            <label for="Phone">Smart Phone</label>
-          </div>
+        <fieldset class="checkbox-group" required>
+          <legend class="minor-header">What are the devices you use most often to connect to the internet? Select all that apply. *</legend>
 
-          <div class="label-text">
-            <label class="force-block">What is the make and model of this primary device? *</label>
-            <input class="force-block input-size-30" required id="primary-make-model" type="text" value="" placeholder="Apple iPhone 10, Microsoft Surface Pro 3, ..." v-model="toSendTester['primaryMakeModel']">
+          <div class="checkbox-label">
+            <input type="checkbox" id="desktop" name="device" value="desktop" v-model="toSendTester['desktop']">
+            <label for="desktop">Desktop Computer</label>
+          </div>
+          <div class="checkbox-label">
+            <input type="checkbox" id="laptop" name="device" value="laptop" v-model="toSendTester['laptop']">
+            <label for="laptop">Laptop Computer</label>
+          </div>
+          <div class="checkbox-label">
+            <input type="checkbox" id="tablet" name="device" value="tablet" v-model="toSendTester['tablet']">
+            <label for="tablet">Tablet</label>
+          </div>
+          <div class="checkbox-label">
+            <input type="checkbox" id="smartphone" name="device" value="smartphone" v-model="toSendTester['smartphone']">
+            <label for="smartphone">Smart Phone</label>
           </div>
         </fieldset>
+      </div>
 
-        <fieldset class="radio-group" required>
-          <legend class="minor-header">What is the device you use the second most often to connect to the Internet? *</legend>
-          <div class="radio-label">
-            <input type="radio" id="secondary-desktop" name="secondary-device" value="Desktop" v-model="toSendTester['secondaryDevice']">
-            <label for="Desktop">Desktop Computer</label>
-          </div>
-          <div class="radio-label">
-            <input type="radio" id="secondary-laptop" name="secondary-device" value="Laptop" v-model="toSendTester['secondaryDevice']">
-            <label for="Laptop">Laptop</label>
-          </div>
-          <div class="radio-label">
-            <input type="radio" id="secondary-tablet" name="secondary-device" value="Tablet" v-model="toSendTester['secondaryDevice']">
-            <label for="Tablet">Tablet</label>
-          </div>
-          <div class="radio-label">
-            <input type="radio" id="secondary-phone" name="secondary-device" value="Phone" v-model="toSendTester['secondaryDevice']">
-            <label for="Phone">Smart Phone</label>
-          </div>
+      <div class="space-bottom-20px">
+        <fieldset class="checkbox-group" required>
+          <legend class="minor-header">What are the most common ways you connect to the Internet? Select all that apply. *</legend>
 
-          <div class="label-text">
-            <label class="force-block">What is the make and model of this secondary device? *</label>
-            <input class="force-block input-size-30" required id="secondary-make-model" type="text" value="" placeholder="Apple iPhone 10, Microsoft Surface Pro 3, ..." v-model="toSendTester['secondaryMakeModel']">
+          <div class="checkbox-label">
+            <input type="checkbox" id="broadband" name="device" value="broadband" v-model="toSendTester['broadband']">
+            <label for="broadband">Broadband at home (Cable, DSL, etc.)</label>
           </div>
-        </fieldset>
-
-        <fieldset class="radio-group" required>
-          <legend class="minor-header">What is the most common way you connect to the Internet? *</legend>
-          <div class="radio-label">
-            <input type="radio" id="primary-broadband" name="primary-connect" value="Broadband" v-model="toSendPrimaryConnect" v-on:click="setPrimaryConnect('Broadband')">
-            <label for="primary-broadband">Broadband at home (Cable, DSL, etc.)</label>
+          <div class="checkbox-label">
+            <input type="checkbox" id="dataplan" name="device" value="dataplan" v-model="toSendTester['dataplan']">
+            <label for="dataplan">Phone with Data Plan</label>
           </div>
-          <div class="radio-label">
-            <input type="radio" id="primary-phone" name="primary-connect" value="Phone" v-model="toSendPrimaryConnect" v-on:click="setPrimaryConnect('Phone')">
-            <label for="primary-phone">Phone with Data Plan</label>
+          <div class="checkbox-label">
+            <input type="checkbox" id="publicwifi" name="device" value="publicwifi" v-model="toSendTester['publicwifi']">
+            <label for="publicwifi">Public Wifi</label>
           </div>
-          <div class="radio-label">
-            <input type="radio" id="primary-publicwifi" name="primary-connect" value="Public Wifi" v-model="toSendPrimaryConnect" v-on:click="setPrimaryConnect('Public Wifi')">
-            <label for="primary-publicwifi">Public Wifi</label>
+          <div class="checkbox-label">
+            <input type="checkbox" id="publiccomputer" name="device" value="publiccomputer" v-model="toSendTester['publiccomputer']">
+            <label for="publiccomputer">Public Computer Center</label>
           </div>
-          <div class="radio-label">
-            <input type="radio" id="primary-computercenter" name="primary-connect" value="Computer Center" v-model="toSendPrimaryConnect" v-on:click="setPrimaryConnect('Computer Center')">
-            <label for="primary-computercenter">Public Computer Center</label>
-          </div>
-          <div class="label-text">
-            <label>Other:</label>
-            <input class="input-size-20"type="text" value="" placeholder="..." v-model="primaryConnectOther">
-          </div>
-        </fieldset>
-
-        <fieldset class="radio-group" required>
-          <legend class="minor-header">What is the second most common way you connect to the Internet? *</legend>
-          <div class="radio-label">
-            <input type="radio" id="secondary-broadband" name="secondary-connect" value="Broadband" v-model="secondaryConnect" v-on:click="setSecondaryConnect('Broadband')">
-            <label for="secondary-broadband">Broadband at home (Cable, DSL, etc.)</label>
-          </div>
-          <div class="radio-label">
-            <input type="radio" id="secondary-phone" name="secondary-connect" value="Phone" v-model="secondaryConnect" v-on:click="setSecondaryConnect('Phone')">
-            <label for="secondary-phone">Phone with Data Plan</label>
-          </div>
-          <div class="radio-label">
-            <input type="radio" id="secondary-publicwifi" name="secondary-connect" value="Public Wifi" v-model="secondaryConnect" v-on:click="setSecondaryConnect('Public Wifi')">
-            <label for="secondary-publicwifi">Public Wifi</label>
-          </div>
-          <div class="radio-label">
-            <input type="radio" id="secondary-computercenter" name="secondary-connect" value="Computer Center" v-model="secondaryConnect" v-on:click="setSecondaryConnect('Computer Center')">
-            <label for="secondary-computercenter">Public Computer Center</label>
-          </div>
-          <div class="label-text">
-            <label>Other:</label>
-            <input class="input-size-20"type="text" value="" placeholder="..." v-model="secondaryConnectOther">
+          <div class="checkbox-label">
+            <div class="label-text">
+              <label>Other:</label>
+              <input class="input-size-20" type="text" value="" placeholder="..." v-model="toSendTester['otherconnection']">
+            </div>
           </div>
         </fieldset>
       </div>
 
       <div>
-        <fieldset class="radio-group" required>
-          <legend class="minor-header">How would you prefer to be contacted regarding testing oppotunities? *</legend>
-          <div class="radio-label">
-            <input type="radio" id="contactByEmail" name="contactByEmail" value="Email" v-model="toSendTester['contactUsing']">
-            <label for="contactByEmail">Email</label>
-          </div>
-          <div class="radio-label">
-            <input type="radio" id="contactByText" name="contactByText" value="Text" v-model="toSendTester['contactUsing']">
-            <label for="contactByText">Text</label>
-          </div>
-        </fieldset>
-
         <fieldset required>
           <div class="label-text">
             <label class="force-header">How did you hear about the Seattle CUT Group?</label>
