@@ -9,13 +9,13 @@ $(document).ready(function() {
 
   let x = $(window).width();
 
-  if (x >= 700) {
+  if (x >= 1000) {
     headerTitle.text("Seattle Civic User Testing Group")
   } else {
     headerTitle.text("Seattle CUT Group")
   }
 
-  if (x >= 540) {
+  if (x >= 850) {
     sectionNav.css("display", "block");
     mobileNav.css("display", "none");
   } else {
@@ -42,24 +42,24 @@ $(document).ready(function() {
     }
   });
 
-  $(window).on("resize", function(event) {
+  window.onresize = function(event) {
     x = $(window).width();
 
     mobileNav.attr("class", "");
     navBttn.attr("class", "fa fa-bars");
 
-    if (x >= 700) {
+    if (x >= 1000) {
       headerTitle.text("Seattle Civic User Testing Group")
     } else {
       headerTitle.text("Seattle CUT Group")
     }
 
-    if (x >= 540) {
+    if (x >= 850) {
       sectionNav.css("display", "block");
       mobileNav.css("display", "none");
     } else {
       sectionNav.css("display", "none");
       mobileNav.css("display", "inline-block");
     }
-  });
+  };
 });

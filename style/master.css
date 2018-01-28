@@ -12,6 +12,9 @@
 .flex-center {
   justify-content: center; }
 
+.flex-between {
+  justify-content: space-between; }
+
 .flex-end {
   justify-content: flex-end; }
 
@@ -127,7 +130,7 @@
   width: 30em; }
 #vueform .input-size-40 {
   width: 40em; }
-@media only screen and (max-width: 540px) {
+@media only screen and (max-width: 850px) {
   #vueform .input-size-5, #vueform .input-size-10, #vueform .input-size-20, #vueform .input-size-30, #vueform .input-size-40 {
     width: 100%; } }
 
@@ -173,6 +176,9 @@
 
 .space-left-20px {
   margin-left: 20px; }
+
+.space-bottom-40px {
+  margin-bottom: 40px; }
 
 .space-top-60px {
   margin-top: 60px; }
@@ -325,7 +331,7 @@
   background-position: 20% 0%;
   background-size: cover; }
 
-@media only screen and (max-width: 540px) {
+@media only screen and (max-width: 850px) {
   #section-nav {
     display: block;
     margin-right: 0px;
